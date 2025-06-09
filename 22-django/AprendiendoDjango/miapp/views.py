@@ -90,11 +90,25 @@ def crear_articulo(request, title, content, public):
     return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong> - {articulo.content}")
 
 def save_article(request):
-    articulo = Article()
+    if request.method == 'GET':
+        titulo = request.GET['titulo']
 
-    articulo.save()
+        if len(titulo) <= 5:
+            return HttpResponse("El título es muy pequeño")
 
-    return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong> - {articulo.content}")
+        contenido = request.GET['contenido']
+        publicado = request.GET['publicado']
+
+        articulo = Article(
+            title = titulo,
+            content = contenido,
+            public = publicado
+        )
+
+        articulo.save()
+        return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong> - {articulo.content}")
+    else:
+        return HttpResponse("<h2>No se ha podido crear el artículo</h2>")
 
 def create_article(request):
     return render(request, 'create_article.html')
@@ -119,11 +133,11 @@ def editar_articulo(request, id, title, content, public):
     return HttpResponse(f"Articulo editado: <strong>{articulo.title}</strong> - {articulo.content}")
 
 def articulos(request):
-    # articulos = Article.objects.all()
+    articulos = Article.objects.all()
 
-    articulos = Article.objects.filter(id__lte=7, title__contains="article")
+    # articulos = Article.objects.filter(id__lte=7, title__contains="article")
 
-    articulos = Article.objects.filter(Q(title__contains="Segundo") | Q(public=True))
+    # articulos = Article.objects.filter(Q(title__contains="Segundo") | Q(public=True))
 
     # articulos = Article.objects.filter(title__contains="Articulo").exclude(public=False)
 
