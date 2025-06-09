@@ -7,14 +7,14 @@
 <h1 class="title">Formularios en Django</h1>
 
 <form action="{% url 'save' %}" method="GET">
-    <label for="title">Título</label>
-    <input type="text" name="title" placeholder="Ingresa el título">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título">
 
-    <label for="content">Contenido</label>
-    <textarea name="content"></textarea>
+    <label for="contenido">Contenido</label>
+    <textarea id="contenido" name="contenido" rows="4"></textarea>
 
-    <label for="public">¿Publicado?</label>
-    <select name="public">
+    <label for="publicado">¿Publicado?</label>
+    <select id="publicado" name="publicado">
         <option value="1">Si</option>
         <option value="0">No</option>
     </select>
