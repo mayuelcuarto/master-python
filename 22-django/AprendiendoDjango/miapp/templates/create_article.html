@@ -6,7 +6,8 @@
 
 <h1 class="title">Formularios en Django</h1>
 
-<form action="{% url 'save' %}" method="GET">
+<form action="{% url 'save' %}" method="POST">
+    {% csrf_token %}
     <label for="titulo">Título</label>
     <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título">
 
