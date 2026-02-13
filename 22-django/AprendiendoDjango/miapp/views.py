@@ -165,7 +165,7 @@ def editar_articulo(request, id, title, content, public):
     return HttpResponse(f"Articulo editado: <strong>{articulo.title}</strong> - {articulo.content}")
 
 def articulos(request):
-    articulos = Article.objects.all()
+    articulos = Article.objects.filter(public =True).order_by('-id')
 
     # articulos = Article.objects.filter(id__lte=7, title__contains="article")
 
