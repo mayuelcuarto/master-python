@@ -7,3 +7,9 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category)
+
+# Configurar el titulo del panel
+title = "Master en Python - Cristhian Mayuri"
+admin.site.site_header = title
+admin.site.site_title = title
+admin.site.index_title = "Panel de gestión"
