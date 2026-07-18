@@ -1,0 +1,3 @@
+[submodule "20-proyecto-python"]
+	path = 20-proyecto-python
+	url = https://github.com/mayuelcuarto/proyecto-python.git
