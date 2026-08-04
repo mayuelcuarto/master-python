@@ -15,7 +15,7 @@
         {% endcomment %}
 
         {% for field in register_form %}
-            {{ field.label }}
+            <label for="id_{{field.name}}">{{ field.label }}</label>
             {{ field }}
         {% endfor %}
 
