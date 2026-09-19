@@ -1,28 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Aprendiendo Flask con Victor Robles</title>
-    </head>
-    <body>
-        <h1>Aprendiendo Flask con Victor Robles</h1>
-        <hr/>
-        <ul>
-            <li>
-                <a href="/">Inicio</a>
-            </li>
-            <li>
-                <a href="{{ url_for('informacion') }}">Información</a>
-            </li>
-            <li>
-                <a href="{{ url_for('contacto') }}">Contacto</a>
-            </li>
-            <li>
-                <a href="{{ url_for('lenguajes') }}">Lenguajes de programación</a>
-            </li>
-        </ul>
-        <hr/>
+{% extends "layout.html" %}
 
-        <h1>Aprendiendo Flask con Victor Robles</h1>
-    </body>
-</html>
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block content %}
+    <h1>Página de inicio</h1>
+{% endblock %}
